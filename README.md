@@ -61,7 +61,11 @@ The `train_model` and `train_model_with_video` functions are used to train the m
 
 ## Results
 
-The training progress and loss are displayed for each epoch. A video of the training process is saved as [training_video.mp4](http://_vscodecontentref_/1).
+The progress from the 100th epoch to the 500th epoch during the incorporation of pysics loss + data based loss can be found in the notebooks outputs:
+| ![Image 1](frames_NN/500ep.png) | ![Image 2](frames_NN/100epp.png) |
+|---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| Epoch 100                                                                             | Epoch 500                                                                              |
+
 
 ## License
 
