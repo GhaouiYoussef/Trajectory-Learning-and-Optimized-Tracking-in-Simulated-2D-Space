@@ -8,6 +8,7 @@ This repository contains code for predicting shuttlecock trajectories using a ne
 - `Presentaion test technique.pptx`: Presentation file for the technical test.
 - `PysicsbasedNN.ipynb`: Jupyter notebook containing the code for data generation, visualization, and neural network training.
 - `Test - Stage n°2.docx`: Document related to the second stage of the test.
+- `shuttlecock’s trajectory in badminton .pdf`: A Study of Shuttlecock’s Trajectory in Badminton - PMC Paper.
 
 ## Requirements
 
