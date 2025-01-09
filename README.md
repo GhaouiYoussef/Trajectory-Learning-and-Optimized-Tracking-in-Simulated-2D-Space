@@ -51,9 +51,51 @@ The `GenDataEquations` class is used to generate shuttlecock trajectory data bas
 
 The trajectories are visualized using Matplotlib. The code plots the trajectories and combines the data for training.
 
+Here's the updated section for your README.md with the loss explanation added under the Neural Network Model:
+
+---
+
 ### Neural Network Model
 
 The `PiNN` class defines the neural network model using PyTorch. The model is trained to predict the shuttlecock trajectory.
+
+### Loss Functions
+
+The training process incorporates two types of loss functions to ensure accurate predictions while adhering to physical principles:
+
+#### 1. Data-Based Loss
+The data-based loss ensures the model accurately predicts the known trajectory points:
+```math
+L_{\text{data}} = \text{mean} \left( (x_{\text{pred}} - x_{\text{true}})^2 + (y_{\text{pred}} - y_{\text{true}})^2 \right)
+```
+This loss is calculated only for the known data points, ensuring that the predicted curve matches the provided ground truth values at these points.
+
+#### 2. Physics-Based Loss
+The physics-based loss enforces physical constraints derived from the motion of the shuttlecock:
+- **Vertical Motion Loss:**
+```math
+L_{\text{vertical}} = \text{mean} \left( \left( m v_y^2 + b v_y^2 - m g \right)^2 \right)
+```
+This term ensures that the vertical motion obeys Newton's second law, accounting for gravitational force, drag, and acceleration.
+
+- **Horizontal Motion Loss:**
+```math
+L_{\text{horizontal}} = \text{mean} \left( \left( m v_x^2 + b v_x^2 \right)^2 \right)
+```
+This term enforces consistency with horizontal dynamics dominated by drag.
+
+#### Combined Loss
+The total loss combines the data-based loss and the physics-based loss:
+```math
+L_{\text{total}} = \lambda_{\text{data}} L_{\text{data}} + \lambda_{\text{physics}} L_{\text{physics}}
+```
+Here, 
+```math
+\lambda_{\text{data}} and \lambda_{\text{physics}}
+```
+are scaling factors to balance the two components.
+
+The inclusion of physics-based loss ensures that the model's predictions are physically plausible, even in regions where training data is sparse or unavailable, while the data-based loss anchors the predictions to known points.
 
 ### Training
 
